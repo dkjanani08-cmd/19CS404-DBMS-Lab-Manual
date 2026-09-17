@@ -47,123 +47,200 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to change the EMAIL and COMMISSION_PCT column of the following EMPLOYEES table with 'not available' and 0.55 for those employees whose DEPARTMENT_ID is 110.
+
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
 
 ```sql
--- Paste your SQL code below for Question 1
+UPDATE EMPLOYEES
+SET EMAIL = 'not available',
+    COMMISSION_PCT = 0.55
+WHERE DEPARTMENT_ID = 110;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1219" height="452" alt="image" src="https://github.com/user-attachments/assets/81a3a6af-a002-4f21-8cdd-f912c8628f25" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL statement to Update the grade of all customers in Chennai city as  5. 
 
 ```sql
--- Paste your SQL code below for Question 2
+UPDATE Customer
+SET grade = 5
+WHERE city = 'Chennai';
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1197" height="555" alt="image" src="https://github.com/user-attachments/assets/34606d45-0673-4243-b96e-aca42fb7349e" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
+
+products table
+
+---------------
+product_id
+product_name
+category_id
+availability
 
 ```sql
--- Paste your SQL code below for Question 3
+UPDATE products
+SET product_name = 'Grapefruit'
+WHERE product_id = 4;
 ```
 
 **Output:**
+<img width="1208" height="316" alt="image" src="https://github.com/user-attachments/assets/94615664-2886-4acd-ac30-81a407169273" />
 
-![Output3](output.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL statement to Update the hire_date of employees in department 50 to 2024-01-24.
+
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
 
 ```sql
--- Paste your SQL code below for Question 4
+UPDATE EMPLOYEES
+SET hire_date = '2024-01-24'
+WHERE DEPARTMENT_ID = 50;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1203" height="349" alt="image" src="https://github.com/user-attachments/assets/6351933c-f915-458f-bcc5-85ed57c1b375" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to delete a doctor from Doctors table whose Specialization is 'Pediatrics' and First name is 'Michael'.
+
+Sample table: Doctors
+
+attributes : doctor_id, first_name, last_name, specialization
 
 ```sql
--- Paste your SQL code below for Question 5
+DELETE FROM Doctors
+WHERE specialization = 'Pediatrics'
+  AND first_name = 'Michael';
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1203" height="466" alt="image" src="https://github.com/user-attachments/assets/3f3b4159-be00-4bb5-8d86-3b65fe58e298" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to Delete customers from 'customer' table where 'CUST_COUNTRY' is neither 'India' nor 'USA'.
+
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+  
+|CUST_CODE  | CUST_NAME   | CUST_CITY   | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO     | AGENT_CODE |
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+| C00013    | Holmes      | London      | London       | UK           |     2 |     6000.00 |     5000.00 |     7000.00 |       4000.00 | BBBBBBB      | A003       |
+| C00001    | Micheal     | New York    | New York     | USA          |     2 |     3000.00 |     5000.00 |     2000.00 |       6000.00 | CCCCCCC      | A008       |
+| C00020    | Albert      | New York    | New York     | USA          |     3 |     5000.00 |     7000.00 |     6000.00 |       6000.00 | BBBBSBB      | A008       |
+
+
 
 ```sql
--- Paste your SQL code below for Question 6
+DELETE FROM Customer
+WHERE CUST_COUNTRY NOT IN ('India', 'USA');
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1203" height="553" alt="image" src="https://github.com/user-attachments/assets/86344463-86a4-4a6f-af44-54f45de11687" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Delete customers whose 'GRADE' is greater than 2 and have a 'PAYMENT_AMT' less than the average 'PAYMENT_AMT' for all customers, or whose 'OUTSTANDING_AMT' is greater than 8000:
 
 ```sql
--- Paste your SQL code below for Question 7
+DELETE FROM Customer
+WHERE (grade > 2 AND PAYMENT_AMT < (SELECT AVG(PAYMENT_AMT) FROM Customer))
+   OR OUTSTANDING_AMT > 8000;
 ```
 
 **Output:**
 
-![Output7](output.png)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to Delete customers from 'customer' table where 'GRADE' is exactly 2.
 
 ```sql
--- Paste your SQL code below for Question 8
+DELETE FROM Customer
+WHERE grade = 2;
 ```
 
 **Output:**
 
-![Output8](output.png)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Delete a Specific Surgery which was made on 28th Feb 2024.
 
 ```sql
--- Paste your SQL code below for Question 9
+DELETE FROM Surgeries
+WHERE surgery_date = '2024-02-28';
 ```
 
 **Output:**
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a query to fetch 3 top salaried records from EmployeePosition table.
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT *
+FROM EmployeePosition
+ORDER BY Salary DESC
+LIMIT 3;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1206" height="360" alt="image" src="https://github.com/user-attachments/assets/edb53b3b-70cc-4493-9efa-692b4873caef" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
